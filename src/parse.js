@@ -32,7 +32,6 @@ pp.parseImport = function() {
     type: "ImportRule",
     url: "",
     media: null
-
   }
   this.next()
   node.url = this.token.val // this.parseString || parseFunction(specific fn)
@@ -185,7 +184,7 @@ pp.parseSelector = function() {
         name: "",
         operator: null,
         value: null,
-        flags: []
+        // flags: []
       }
       this.next()
       _node.name = this.parseIdent()

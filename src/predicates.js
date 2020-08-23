@@ -87,7 +87,7 @@ pp.isUniversal = function() {
 }
 
 pp.isImportant = function() {
-  return this.token.type === "ident" && this.token.val === "!important" // token if for !?
+  return this.token.type === "ident" && this.token.val === "!important"
 }
 
 pp.isCombinator = function() {
