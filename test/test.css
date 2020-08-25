@@ -1,26 +1,57 @@
 @charset "utf-8";
 @import 'path.woff' print;
+@import url("dkkdsa") print;
 
-
-#about .visible span {
-  height: 100px;
-  width: calc(100px - 100%);
-}
-
-span:hover [type$="text"] [v-cloak] {
+span:hover [type$='text'] [v-cloak] {
   font-size: 10 inherit;
-}
-
-body::after {}
-
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
-  }
 }
 
 @keyframes mymove {
   from {top: 0px;}
   to {top: 200px;}
+  10% {top: 200px;}
 }
-/* reqognize the tag */
+
+body::after {}
+
+.progress .indeterminate:after {
+  content: '';
+  position: absolute;
+  background-color: inherit;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  will-change: left, right;
+  -webkit-animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+          animation: indeterminate-short 2.1s cubic-bezier(0165, 084, 044, 1) infinite;
+  -webkit-animation-delay: 1.15s;
+          animation-delay: 1.15s;
+}
+
+#about .visible span,
+span,
+1span
+{
+  height: .3px1 .3 20.2 20.2px 100px !important;
+  width: calc(100.px - 1.4%);
+}
+
+@media screen and (max-width: 900px) {
+  body {
+    background-color: lightblue;
+    content: "A paragraph";
+  }
+
+  html {
+    height: .3px1 .3 20.2 20.2px 100px !important;
+    width: calc(100.px + 1.4%);
+  }
+}
+
+#about .visible,
+span
+{
+  height: 100px !important;
+  display: flex;
+  color: rgb(22, 29, 120, 0);
+}

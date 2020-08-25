@@ -4,8 +4,6 @@ exports.Parser = class Parser {
     this.tokens = tokens
     this.i = 0
     this.token = this.tokens[this.i]
-    // this.tokenizer = new tokenizer()
-    // this.level - add in tokenizer instead?
   }
 
   next(n) {
@@ -23,9 +21,9 @@ exports.Parser = class Parser {
       throw "Expected " + token + ", instead found" + this.token
   }
 
-  // parse() {
-  //   return this.parse(this.tokenizer(input))
-  // }
-
-
+  isEnd(line, pos) {
+    if (this.i >= this.tokens.length || this.token === undefined) {
+      throw new SyntaxError("Unexpected end of input. Starting at line " + line + ":" + pos)
+    }
+  }
 }

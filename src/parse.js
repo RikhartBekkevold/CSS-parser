@@ -17,7 +17,7 @@ pp.parse = function() {
 ////////////////////////////////
 pp.parseToplevel = function(noImp) {
   if (this.isSelector())    return this.parseSelectorList(noImp)
-  if (this.isMediaQuery())  return this.parseMedia()
+  if (this.isMediaQuery())  return this.parseMediaList()
   if (this.isKeyframes())   return this.parseKeyframes()
   if (this.isCharsetRule()) return this.parseCharset()
   if (this.isFontface())    return this.parseFontface()
@@ -34,7 +34,8 @@ pp.parseImport = function() {
     media: null
   }
   this.next()
-  node.url = this.token.val // this.parseString || parseFunction(specific fn)
+  var name = this.parseIdent()
+  node.url = this.isString() ? this.parseString() : (this.next(), this.parseFunction(name))
   this.next()
   if (!this.isStatementEnd()) {
     node.media = []
@@ -48,8 +49,7 @@ pp.parseImport = function() {
         this.next()
         statement.prop = this.token.val
         this.next(2)
-
-        statement.val = this.parseValue()
+        statement.val = this.parseValues()
         node.media.push(statement)
       }
       else {
@@ -83,7 +83,6 @@ pp.parseFontface = function() {
   }
   this.next()
   node.block = this.parseBlock()
-
   return node
 }
 
@@ -103,7 +102,28 @@ pp.parseKeyframes = function() {
     node.arguments.push(this.parseToplevel(true))
     this.next()
   }
+  return node
+}
 
+
+////////////////////////////////
+pp.parseMediaList = function() {
+  var node = {
+    type: "MediaQueryList",
+    queries: [],
+    selectors: []
+  }
+  this.next()
+  node.queries.push(this.parseMedia())
+  while (this.isListSeparator()) {
+    this.next()
+    node.queries.push(this.parseMedia())
+  }
+  this.next()
+  while (!this.isBlockEnd()) {
+    node.selectors.push(this.parseToplevel())
+    this.next()
+  }
   return node
 }
 
@@ -112,19 +132,24 @@ pp.parseKeyframes = function() {
 pp.parseMedia = function() {
   var node = {
     type: "MediaRule",
-    def: [],
-    selectors: []
+    def: []
   }
-  this.next()
-  while(!this.isBlockStart()) {
-    node.def.push(this.token.val)
+  while(!this.isBlockStart() && !this.isListSeparator()) {
+    node.def.push(this.parseAtom() || this.parseMediaFeature())
     this.next()
   }
+  return node
+}
+
+
+////////////////////////////////
+pp.parseMediaFeature = function() {
+  var node = { type: "MediaFeature", prop: null, val: null}
   this.next()
-  while (!this.isBlockEnd()) {
-    node.selectors.push(this.parseToplevel())
-    this.next()
-  }
+  node.prop = this.parseIdent()
+  this.next(2)
+  node.val = this.parseAtom()
+  this.next()
   return node
 }
 
@@ -137,12 +162,11 @@ pp.parseSelectorList = function(noImp) {
     rules: {}
   }
   node.selectors.push(this.parseSelector())
-  while (this.token.val === ",") {
+  while (this.isListSeparator()) {
     this.next()
     node.selectors.push(this.parseSelector())
   }
   node.rules = this.parseBlock(noImp)
-
   return node
 }
 
@@ -153,56 +177,113 @@ pp.parseSelector = function() {
     type: "Selector",
     children: []
   }
-  while(!this.isBlockStart() && this.token.val !== ",") {
-    if (this.isClass())       node.children.push({type: "ClassSelector", name: this.token.val})
-    if (this.isTag())         node.children.push({type: "TagSelector", name: this.token.val})
-    if (this.isID())          node.children.push({type: "IdSelector", name: this.token.val})
-    if (this.isCombinator())  node.children.push({type: "Combinator", name: this.token.val})
-
-    if (this.isPseudoElement()) {
-      let _node = {
-        type: "PsuedoElementSelector",
-        name: ""
-      }
-      this.next()
-      _node.name = this.token.val
-      node.children.push(_node)
-    }
-    if (this.isPseudoClass()) {
-      let _node = {
-        type: "PseudoClassSelector",
-        name: ""
-      }
-      this.next()
-      _node.name = this.token.val
-      node.children.push(_node)
-    }
-
-    if (this.isAttribute()) {
-      let _node = {
-        type: "AttributeSelector",
-        name: "",
-        operator: null,
-        value: null,
-        // flags: []
-      }
-      this.next()
-      _node.name = this.parseIdent()
-      this.next()
-      if (this.isAttributeOperator()) {
-          _node.operator = this.token.val
-          this.next()
-          _node.value = this.token.type === "string" ? this.parseString() : this.parseIdent()
-          this.next()
-      }
-      node.children.push(_node)
-    }
-
-
+  while(!this.isBlockStart() && !this.isListSeparator()) {
+    if (this.isClass())         node.children.push(this.parseClass())
+    if (this.isTag())           node.children.push(this.parseTag())
+    if (this.isID())            node.children.push(this.parseID())
+    if (this.isCombinator())    node.children.push(this.parseCombinator())
+    if (this.isPseudoElement()) node.children.push(this.parsePseudoElement())
+    if (this.isPseudoClass())   node.children.push(this.parsePseudoClass())
+    if (this.isAttribute())     node.children.push(this.parseAttribute())
+    if (this.isNum())           node.children.push({type: "Number", name: this.token.val})
     this.next()
   }
-
   return node
+}
+
+
+////////////////////////////////
+pp.parsePseudoElement  = function () {
+  let node = {
+    type: "PsuedoElementSelector",
+    name: ""
+  }
+  this.next()
+  node.name = this.token.val
+  return node
+};
+
+
+////////////////////////////////
+pp.parsePseudoClass  = function () {
+  let node = {
+    type: "PseudoClassSelector",
+    name: ""
+  }
+  this.next()
+  node.name = this.token.val
+  return node
+};
+
+
+////////////////////////////////
+pp.parseAttribute = function() {
+  let node = {
+    type: "AttributeSelector",
+    name: "",
+    operator: null,
+    value: null,
+    // flags: []
+  }
+  this.next()
+  node.name = this.parseIdent()
+  this.next()
+  if (this.isAttributeOperator()) {
+    node.operator = this.token.val
+    this.next()
+    node.value = this.isString() ? this.parseString() : this.parseIdent()
+    this.next()
+  }
+  return node
+}
+
+
+////////////////////////////////
+pp.parsePseudoClass = function() {
+  let node = {
+    type: "PseudoClassSelector",
+    name: ""
+  }
+  this.next()
+  node.name = this.token.val
+  return node
+}
+
+
+////////////////////////////////
+pp.parseClass = function() {
+  return {
+    type: "ClassSelector",
+    name: this.token.val
+  }
+}
+
+
+////////////////////////////////
+pp.parseTag = function() {
+  return {
+    type: "TagSelector",
+    // loc: {start, end}
+    name: this.token.val
+  }
+}
+
+
+////////////////////////////////
+pp.parseID = function() {
+  return {
+    type: "IdSelector",
+    name: this.token.val
+  }
+}
+
+
+////////////////////////////////
+pp.parseCombinator = function() {
+  return {
+    type: "Combinator",
+    name: this.token.val
+  }
 }
 
 
@@ -230,14 +311,14 @@ pp.parseStatement = function(noImp) {
   }
   node.property = this.token.val
   this.next(2)
-  node.value = this.parseValue(node, noImp)
+  node.value = this.parseValues(node, noImp)
   this.next()
   return node
 }
 
 
 ////////////////////////////////
-pp.parseValue = function(parent, noImp) {
+pp.parseValues = function(parent, noImp) {
   var node = {
     type: "Value",
     parts: []
@@ -270,6 +351,10 @@ pp.parseValue = function(parent, noImp) {
       node.parts.push(this.parseFunction(node.parts.pop()))
     }
 
+    if (this.isString()) {
+      node.parts.push(this.parseString())
+    }
+
     if (this.isHex()) {
       let part = {
         type: "Hex",
@@ -286,40 +371,10 @@ pp.parseValue = function(parent, noImp) {
 
 ////////////////////////////////
 pp.parseAtom = function() {
-  var node = {}
-
-  if (this.isNum()) {
-    node = {
-      type: "Dimension",
-      val: this.token.val,
-    }
-    if (this.token.postfix && this.token.postfix !== "%") {
-      node.unit = this.token.postfix
-    }
-    if (this.token.postfix === "%") {
-      node.type = "Percentage"
-    }
-
-    if (!this.token.postfix) {
-      node.type = "Number"
-    }
-  }
-
-  if (this.isIdent()) {
-    node = {
-      type: "Identifier",
-      name: this.token.val
-    }
-  }
-
-  if (this.isHex()) {
-    node = {
-      type: "Hex",
-      val: this.token.val
-    }
-  }
-
-  return node
+  if (this.isNum())     return this.parseNum()
+  if (this.isIdent())   return this.parseIdent()
+  if (this.isString())  return this.parseString()
+  if (this.isHex())     return this.parseHex()
 }
 
 
@@ -332,10 +387,38 @@ pp.parseFunction = function(name) {
   }
   this.next()
   while (!this.isParanEnd()) {
+    if (this.isListSeparator()) this.next()
     node.arguments.push(this.parseAtom())
     this.next()
   }
   return node
+}
+
+
+////////////////////////////////
+pp.parseNum  = function() {
+  var node = {
+    type: "Dimension",
+    val: this.token.val,
+  }
+
+  if (this.token.postfix && this.token.postfix !== "%")
+    node.unit = this.token.postfix
+  if (this.token.postfix === "%")
+    node.type = "Percentage"
+  if (!this.token.postfix)
+    node.type = "Number"
+
+  return node
+}
+
+
+////////////////////////////////
+pp.parseHex = function() {
+  return {
+    type: "Hex",
+    val: this.token.val
+  }
 }
 
 
@@ -352,6 +435,14 @@ pp.parseIdent = function() {
 pp.parseString = function() {
   return {
     type: "String",
+    val: this.token.val
+  }
+}
+
+////////////////////////////////
+pp.parseOperator = function() {
+  return {
+    type: "Operator",
     val: this.token.val
   }
 }

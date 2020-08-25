@@ -1,12 +1,11 @@
-const Parser = require('./parser').Parser
-const pp = Parser.prototype
+const pp = require('./parser').Parser.prototype
 
 pp.isMediaQuery = function() {
   return this.token.type === "@" && this.token.val === "media"
 }
 
 pp.isKeyframes = function() {
-  return this.token.type === "@" && this.token.val === "keyframes"
+  return this.token.type === "@" && (this.token.val === "keyframes" || this.token.val === "-webkit-keyframes")
 }
 
 pp.isImportRule = function() {
@@ -41,29 +40,12 @@ pp.isParanEnd = function() {
   return this.token.type === "punctation" && this.token.val === ")"
 }
 
-pp.isPseudoClass = function() {
-  return this.token.type === "punctation" && this.token.val === ":"
-}
-
-pp.isPseudoElement = function() {
-  return this.token.type === "punctation" && this.token.val === "::"
-}
-
-
-pp.isAttributeOperator = function() {
-  return this.token.type === "operator"
-}
-
 pp.isListSeparator = function() {
   return this.token.type === "combinator" && this.token.val === ","
 }
 
-pp.isSelector = function() {
-  return (
-    this.isID()  ||
-    this.isTag() ||
-    this.isClass()
-  )
+pp.isAttributeOperator = function() {
+  return this.token.type === "attributeoperator"
 }
 
 pp.isID = function() {
@@ -82,8 +64,28 @@ pp.isAttribute = function() {
   return this.token.type === "punctation" && this.token.val === "["
 }
 
+pp.isPseudoClass = function() {
+  return this.token.type === "punctation" && this.token.val === ":"
+}
+
+pp.isPseudoElement = function() {
+  return this.token.type === "punctation" && this.token.val === "::"
+}
+
 pp.isUniversal = function() {
   return this.token.type === "operator" && this.token.val === "*"
+}
+
+pp.isSelector = function() {
+  return (
+    this.isID()             ||
+    this.isTag()            ||
+    this.isClass()          ||
+    this.isPseudoClass()    ||
+    this.isPseudoElement()  ||
+    this.isAttribute()      ||
+    this.isNum()
+  )
 }
 
 pp.isImportant = function() {
@@ -108,4 +110,8 @@ pp.isFunction = function() {
 
 pp.isHex = function() {
   return this.isID()
+}
+
+pp.isString = function() {
+  return this.token.type === "string"
 }

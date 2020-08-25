@@ -23,7 +23,7 @@ exports.Tokenizer = class Tokenizer {
         this.move(2)
         this.next(2)
 
-        while (this.isCommentEnd()) {
+        while (!this.isCommentEnd()) {
           this.move(), this.next()
           this.isEnd(line, pos)
         }
@@ -36,7 +36,7 @@ exports.Tokenizer = class Tokenizer {
       if (this.isNum()) {
         var num = "", start = this.pos
         var postfix = ""
-        while (this.isNum()) {
+        while (this.isNum() || this.isDot()) {
           num += this.char
           this.move()
           this.next()
@@ -57,8 +57,8 @@ exports.Tokenizer = class Tokenizer {
         var start = this.pos
         while (this.isIdent()) {
           val += this.char
-          this.next()
           this.move()
+          this.next()
         }
         this.createToken("ident", val, start)
         continue
@@ -68,7 +68,7 @@ exports.Tokenizer = class Tokenizer {
       if (this.isAttributeOperator()) {
         var start = this.pos
         this.move()
-        var token = this.createToken("operator", this.char, start)
+        var token = this.createToken("attributeoperator", this.char, start)
         this.next()
 
         if (this.char === "=") {
@@ -92,20 +92,43 @@ exports.Tokenizer = class Tokenizer {
       }
 
 
-      if (this.isClass()) {
-        let name = "", start = this.pos
+      if (this.isDot()) {
+        let val = "", start = this.pos
         this.move()
         this.next()
-        while (this.isIdent()) {
-          name += this.char
-          this.move()
-          this.next()
+
+        if (this.isNum()) {
+          val += "."
+          var postfix = ""
+
+          while (this.isNum() || this.isDot()) {
+            val += this.char
+            this.move()
+            this.next()
+          }
+
+          while (this.isIdent()) {
+            postfix += this.char
+            this.move()
+            this.next()
+          }
+          var token = this.createToken("num", val, start)
+          token.postfix = postfix
         }
-        this.createToken("class", name, start)
+
+        if (this.isIdent()) {
+          while (this.isIdent()) {
+            val += this.char
+            this.move()
+            this.next()
+          }
+          this.createToken("class", val, start)
+        }
         continue
       }
 
-
+      // is hashtag - rename
+      // check if num after and decide here? or context there.. then ishastag makes more sense
       if (this.isID()) {
         let name = "", start = this.pos
         this.next()
@@ -146,7 +169,7 @@ exports.Tokenizer = class Tokenizer {
       }
 
 
-      if (this.isAtSign()) {
+      if (this.isAtRule()) {
         let type = "", start = this.pos
         this.move()
         this.next()
@@ -161,18 +184,14 @@ exports.Tokenizer = class Tokenizer {
       throw new SyntaxError("Unknown token " + this.char + " at " + this.line + ":" + this.pos)
     }
 
-    console.log(this.tokens);
     return this.tokens
   }
-
-
 
   isEnd(line, pos) {
     if (this.curr >= this.input.length) {
       throw new SyntaxError("Unexpected end of input. Unclosed comment starting at line " + line + ":" + pos);
     }
   }
-
 
   isStringEnd(type) {
     return type === '"' ?
@@ -188,7 +207,7 @@ exports.Tokenizer = class Tokenizer {
     return this.char === "#"
   }
 
-  isClass() {
+  isDot() {
     return this.char === "."
   }
 
@@ -197,7 +216,7 @@ exports.Tokenizer = class Tokenizer {
   }
 
   isIdent() {
-    return /[a-zA-Z_\-0-9!%]/.test(this.char) && this.char !== undefined
+    return /[a-zA-Z_\-0-9!%\*]/.test(this.char) && this.char !== undefined
   }
 
   isNum() {
@@ -223,15 +242,6 @@ exports.Tokenizer = class Tokenizer {
     )
   }
 
-  isOperator() {
-    return (
-        this.char === "+" ||
-        this.char === "-" ||
-        this.char === "/" ||
-        this.char === "*"
-    )
-  }
-
   isPunctation(char) {
     return (
       this.char === "}"  ||
@@ -249,7 +259,7 @@ exports.Tokenizer = class Tokenizer {
     return this.char === "*"
   }
 
-  isAtSign() {
+  isAtRule() {
     return this.char === "@"
   }
 
@@ -267,7 +277,7 @@ exports.Tokenizer = class Tokenizer {
   }
 
   isCommentEnd() {
-    return this.char !== "*" || this.input[this.curr+1] !== "/"
+    return this.char === "*" && this.peek() === "/"
   }
 
   lookback(n) {
@@ -282,12 +292,10 @@ exports.Tokenizer = class Tokenizer {
       this.input[this.curr + 1]
   }
 
-  next(n, move, before) {
-    // if (move) this.move()
+  next(n, move) {
     return this.char = n ?
       this.input[this.curr = this.curr + n] :
       this.input[++this.curr]
-    // if (!move && before) this.move()
   }
 
   move(n) {
