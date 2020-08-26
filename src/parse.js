@@ -34,7 +34,7 @@ pp.parseImport = function() {
     media: null
   }
   this.next()
-  var name = this.parseIdent()
+  var name = this.token.val
   node.url = this.isString() ? this.parseString() : (this.next(), this.parseFunction(name))
   this.next()
   if (!this.isStatementEnd()) {
@@ -222,8 +222,7 @@ pp.parseAttribute = function() {
     type: "AttributeSelector",
     name: "",
     operator: null,
-    value: null,
-    // flags: []
+    value: null
   }
   this.next()
   node.name = this.parseIdent()
@@ -263,7 +262,6 @@ pp.parseClass = function() {
 pp.parseTag = function() {
   return {
     type: "TagSelector",
-    // loc: {start, end}
     name: this.token.val
   }
 }
@@ -324,45 +322,13 @@ pp.parseValues = function(parent, noImp) {
     parts: []
   }
   while (!this.isStatementEnd()) {
-
-    if (this.isNum()) {
-      let part = {
-        type: "Dimension",
-        val: this.token.val,
-      }
-      if (this.token.postfix &&
-          this.token.postfix !== "%")   part.unit = this.token.postfix
-      if (this.token.postfix === "%")   part.type = "Percentage"
-      if (!this.token.postfix)          part.type = "Number"
-      node.parts.push(part)
-    }
-
-    if (this.isIdent()) {
-      let part = {
-        type: "Identifier",
-        name: this.token.val
-      }
-      this.isImportant() ?
-        noImp === true ? null : parent.important = true :
-        node.parts.push(part)
-    }
-
-    if (this.isFunction()) {
-      node.parts.push(this.parseFunction(node.parts.pop()))
-    }
-
-    if (this.isString()) {
-      node.parts.push(this.parseString())
-    }
-
-    if (this.isHex()) {
-      let part = {
-        type: "Hex",
-        val: this.token.val
-      }
-      node.parts.push(part)
-    }
-
+    if (this.isNum())       node.parts.push(this.parseNum())
+    if (this.isFunction())  node.parts.push(this.parseFunction(node.parts.pop().name))
+    if (this.isString())    node.parts.push(this.parseString())
+    if (this.isHex())       node.parts.push(this.parseHex())
+    if (this.isIdent())     this.isImportant() ?
+                              noImp === true ? null : parent.important = true :
+                              node.parts.push(this.parseIdent())
     this.next()
   }
   return node

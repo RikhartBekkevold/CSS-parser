@@ -11,3 +11,5 @@ function makeMap(str, separator, expectsLowerCase) {
 }
 
 var isUnit = makeMap("vmax,vmin,vh,vw,rem,ch,em,ex,%,px,cm,mm,in,pt,pc")
+
+var isHex = /[0-9A-Za-z]/ // validate 3 or 6/length
