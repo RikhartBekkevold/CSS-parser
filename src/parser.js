@@ -26,4 +26,17 @@ exports.Parser = class Parser {
       throw new SyntaxError("Unexpected end of input. Starting at line " + line + ":" + pos)
     }
   }
+  
+  createLoc(tokenS, tokenE) {
+    return {
+      start: {
+        line: tokenS ? tokenS.loc.start.line : this.token.line,
+        col: tokenS ? tokenS.loc.start.col : this.token.start
+      },
+      end: {
+        line: tokenE ? tokenE.line : this.token.line,
+        col: tokenE ?  tokenE.end : this.token.end
+      }
+    }
+  }
 }

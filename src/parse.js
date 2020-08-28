@@ -30,12 +30,13 @@ pp.parseToplevel = function(noImp) {
 pp.parseImport = function() {
   var node = {
     type: "ImportRule",
+    loc: this.createLoc(),
     url: "",
     media: null
   }
   this.next()
-  var name = this.token.val
-  node.url = this.isString() ? this.parseString() : (this.next(), this.parseFunction(name))
+  var token = this.parseIdent()
+  node.url = this.isString() ? this.parseString() : (this.next(), this.parseFunction(token))
   this.next()
   if (!this.isStatementEnd()) {
     node.media = []
@@ -43,6 +44,7 @@ pp.parseImport = function() {
       if (this.isParanStart()) {
         var statement = {
           type: "Statement",
+          loc: this.createLoc(),
           prop: "",
           val: {}
         }
@@ -51,6 +53,8 @@ pp.parseImport = function() {
         this.next(2)
         statement.val = this.parseValues()
         node.media.push(statement)
+        node.loc.end.line = this.token.line
+        node.loc.end.col = this.token.end
       }
       else {
         node.media.push(this.parseAtom())
@@ -58,6 +62,8 @@ pp.parseImport = function() {
       }
     }
   }
+  node.loc.end.line = this.token.line
+  node.loc.end.col = this.token.end
   return node
 }
 
@@ -66,11 +72,14 @@ pp.parseImport = function() {
 pp.parseCharset = function() {
   var node = {
     type: "CharsetRule",
-    encoding: ""
+    loc: this.createLoc(),
+    encoding: "",
   }
   this.next()
   node.encoding = this.parseString()
   this.next()
+  node.loc.end.line = this.token.line
+  node.loc.end.col = this.token.end
   return node
 }
 
@@ -79,10 +88,13 @@ pp.parseCharset = function() {
 pp.parseFontface = function() {
   var node = {
     type: "FontFaceRule",
+    loc: this.createLoc(),
     block: {}
   }
   this.next()
   node.block = this.parseBlock()
+  node.loc.end.line = this.token.line
+  node.loc.end.col = this.token.end
   return node
 }
 
@@ -91,6 +103,7 @@ pp.parseFontface = function() {
 pp.parseKeyframes = function() {
   var node = {
     type: "KeyframesRule",
+    loc: this.createLoc(),
     name: "",
     arguments: []
   }
@@ -102,6 +115,8 @@ pp.parseKeyframes = function() {
     node.arguments.push(this.parseToplevel(true))
     this.next()
   }
+  node.loc.end.line = this.token.line
+  node.loc.end.col = this.token.end
   return node
 }
 
@@ -110,6 +125,7 @@ pp.parseKeyframes = function() {
 pp.parseMediaList = function() {
   var node = {
     type: "MediaQueryList",
+    loc: this.createLoc(),
     queries: [],
     selectors: []
   }
@@ -124,6 +140,8 @@ pp.parseMediaList = function() {
     node.selectors.push(this.parseToplevel())
     this.next()
   }
+  node.loc.end.line = this.token.line
+  node.loc.end.col = this.token.end
   return node
 }
 
@@ -132,24 +150,34 @@ pp.parseMediaList = function() {
 pp.parseMedia = function() {
   var node = {
     type: "MediaRule",
+    loc: this.createLoc(),
     def: []
   }
   while(!this.isBlockStart() && !this.isListSeparator()) {
     node.def.push(this.parseAtom() || this.parseMediaFeature())
     this.next()
   }
+  node.loc.end.line = this.token.line
+  node.loc.end.col = this.token.end
   return node
 }
 
 
 ////////////////////////////////
 pp.parseMediaFeature = function() {
-  var node = { type: "MediaFeature", prop: null, val: null}
+  var node = {
+    type: "MediaFeature",
+    loc: this.createLoc(),
+    prop: null,
+    val: null
+  }
   this.next()
   node.prop = this.parseIdent()
   this.next(2)
   node.val = this.parseAtom()
   this.next()
+  node.loc.end.line = this.token.line
+  node.loc.end.col = this.token.end
   return node
 }
 
@@ -158,6 +186,7 @@ pp.parseMediaFeature = function() {
 pp.parseSelectorList = function(noImp) {
   var node = {
     type: "StyleRule",
+    loc: this.createLoc(),
     selectors: [],
     rules: {}
   }
@@ -167,6 +196,8 @@ pp.parseSelectorList = function(noImp) {
     node.selectors.push(this.parseSelector())
   }
   node.rules = this.parseBlock(noImp)
+  node.loc.end.line = this.token.line
+  node.loc.end.col = this.token.end
   return node
 }
 
@@ -174,20 +205,24 @@ pp.parseSelectorList = function(noImp) {
 ////////////////////////////////
 pp.parseSelector = function() {
   var node = {
-    type: "Selector",
-    children: []
+    type: "SelectorPattern",
+    loc: this.createLoc(),
+    selectors: []
   }
   while(!this.isBlockStart() && !this.isListSeparator()) {
-    if (this.isClass())         node.children.push(this.parseClass())
-    if (this.isTag())           node.children.push(this.parseTag())
-    if (this.isID())            node.children.push(this.parseID())
-    if (this.isCombinator())    node.children.push(this.parseCombinator())
-    if (this.isPseudoElement()) node.children.push(this.parsePseudoElement())
-    if (this.isPseudoClass())   node.children.push(this.parsePseudoClass())
-    if (this.isAttribute())     node.children.push(this.parseAttribute())
-    if (this.isNum())           node.children.push({type: "Number", name: this.token.val})
+    if (this.isClass())         node.selectors.push(this.parseClass())
+    if (this.isTag())           node.selectors.push(this.parseTag())
+    if (this.isID())            node.selectors.push(this.parseID())
+    if (this.isCombinator())    node.selectors.push(this.parseCombinator())
+    if (this.isPseudoElement()) node.selectors.push(this.parsePseudoElement())
+    if (this.isPseudoClass())   node.selectors.push(this.parsePseudoClass())
+    if (this.isAttribute())     node.selectors.push(this.parseAttribute())
+    if (this.isNum())           node.selectors.push({type: "Number", name: this.token.val})
     this.next()
   }
+  // prev/last node or..
+  node.loc.end.line = this.token.line
+  node.loc.end.col = this.token.end
   return node
 }
 
@@ -196,10 +231,13 @@ pp.parseSelector = function() {
 pp.parsePseudoElement  = function () {
   let node = {
     type: "PsuedoElementSelector",
+    loc: this.createLoc(),
     name: ""
   }
   this.next()
   node.name = this.token.val
+  node.loc.end.line = this.token.line
+  node.loc.end.col = this.token.end
   return node
 };
 
@@ -208,18 +246,23 @@ pp.parsePseudoElement  = function () {
 pp.parsePseudoClass  = function () {
   let node = {
     type: "PseudoClassSelector",
+    loc: this.createLoc(),
     name: ""
   }
   this.next()
   node.name = this.token.val
+  node.loc.end.line = this.token.line
+  node.loc.end.col = this.token.end
   return node
 };
 
 
 ////////////////////////////////
 pp.parseAttribute = function() {
+  console.log(this.token);
   let node = {
     type: "AttributeSelector",
+    loc: this.createLoc(),
     name: "",
     operator: null,
     value: null
@@ -233,18 +276,8 @@ pp.parseAttribute = function() {
     node.value = this.isString() ? this.parseString() : this.parseIdent()
     this.next()
   }
-  return node
-}
-
-
-////////////////////////////////
-pp.parsePseudoClass = function() {
-  let node = {
-    type: "PseudoClassSelector",
-    name: ""
-  }
-  this.next()
-  node.name = this.token.val
+  node.loc.end.line = this.token.line
+  node.loc.end.col = this.token.end
   return node
 }
 
@@ -253,6 +286,7 @@ pp.parsePseudoClass = function() {
 pp.parseClass = function() {
   return {
     type: "ClassSelector",
+    loc: this.createLoc(),
     name: this.token.val
   }
 }
@@ -262,6 +296,7 @@ pp.parseClass = function() {
 pp.parseTag = function() {
   return {
     type: "TagSelector",
+    loc: this.createLoc(),
     name: this.token.val
   }
 }
@@ -271,6 +306,7 @@ pp.parseTag = function() {
 pp.parseID = function() {
   return {
     type: "IdSelector",
+    loc: this.createLoc(),
     name: this.token.val
   }
 }
@@ -280,6 +316,7 @@ pp.parseID = function() {
 pp.parseCombinator = function() {
   return {
     type: "Combinator",
+    loc: this.createLoc(),
     name: this.token.val
   }
 }
@@ -289,12 +326,16 @@ pp.parseCombinator = function() {
 pp.parseBlock = function(noImp) {
   var node = {
     type: "Block",
+    loc: this.createLoc(),
     statements: []
   }
   this.next()
   while (!this.isBlockEnd()) {
     node.statements.push(this.parseStatement(noImp))
+    this.next()
   }
+  node.loc.end.line = this.token.line
+  node.loc.end.col = this.token.end
   return node
 }
 
@@ -305,12 +346,14 @@ pp.parseStatement = function(noImp) {
     type: "Statement",
     important: false,
     property: "",
+    loc: this.createLoc(),
     value: {}
   }
   node.property = this.token.val
   this.next(2)
   node.value = this.parseValues(node, noImp)
-  this.next()
+  node.loc.end.line = this.token.line
+  node.loc.end.col = this.token.end
   return node
 }
 
@@ -319,18 +362,22 @@ pp.parseStatement = function(noImp) {
 pp.parseValues = function(parent, noImp) {
   var node = {
     type: "Value",
+    loc: this.createLoc(),
     parts: []
   }
   while (!this.isStatementEnd()) {
     if (this.isNum())       node.parts.push(this.parseNum())
-    if (this.isFunction())  node.parts.push(this.parseFunction(node.parts.pop().name))
+    if (this.isFunction())  node.parts.push(this.parseFunction(node.parts.pop()))
     if (this.isString())    node.parts.push(this.parseString())
     if (this.isHex())       node.parts.push(this.parseHex())
-    if (this.isIdent())     this.isImportant() ?
-                              noImp === true ? null : parent.important = true :
-                              node.parts.push(this.parseIdent())
+    if (this.isIdent())
+      this.isImportant() ?
+        noImp === true ? null : parent.important = true :
+        node.parts.push(this.parseIdent());
     this.next()
   }
+  node.loc.end.line = this.token.line
+  node.loc.end.col = this.token.end
   return node
 }
 
@@ -345,10 +392,12 @@ pp.parseAtom = function() {
 
 
 ////////////////////////////////
-pp.parseFunction = function(name) {
+pp.parseFunction = function(token) {
+  console.log(token.loc);
   var node = {
     type: "Function",
-    name: name,
+    name: token.name,
+    loc: this.createLoc(token),
     arguments: []
   }
   this.next()
@@ -357,6 +406,8 @@ pp.parseFunction = function(name) {
     node.arguments.push(this.parseAtom())
     this.next()
   }
+  node.loc.end.line = this.token.line
+  node.loc.end.col = this.token.end
   return node
 }
 
@@ -365,6 +416,7 @@ pp.parseFunction = function(name) {
 pp.parseNum  = function() {
   var node = {
     type: "Dimension",
+    loc: this.createLoc(),
     val: this.token.val,
   }
 
@@ -383,6 +435,7 @@ pp.parseNum  = function() {
 pp.parseHex = function() {
   return {
     type: "Hex",
+    loc: this.createLoc(),
     val: this.token.val
   }
 }
@@ -392,6 +445,7 @@ pp.parseHex = function() {
 pp.parseIdent = function() {
   return {
     type: "Identifier",
+    loc: this.createLoc(),
     name: this.token.val
   }
 }
@@ -401,6 +455,7 @@ pp.parseIdent = function() {
 pp.parseString = function() {
   return {
     type: "String",
+    loc: this.createLoc(),
     val: this.token.val
   }
 }
@@ -409,6 +464,7 @@ pp.parseString = function() {
 pp.parseOperator = function() {
   return {
     type: "Operator",
+    loc: this.createLoc(),
     val: this.token.val
   }
 }

@@ -127,8 +127,7 @@ exports.Tokenizer = class Tokenizer {
         continue
       }
 
-      // is hashtag - rename
-      // check if num after and decide here? or context there.. then ishastag makes more sense
+
       if (this.isID()) {
         let name = "", start = this.pos
         this.next()
@@ -309,7 +308,7 @@ exports.Tokenizer = class Tokenizer {
       type: type,
       val:  val,
       line: this.line,
-      start: start || this.pos,
+      start: start,
       end: this.pos
     }
     this.tokens.push(token)
