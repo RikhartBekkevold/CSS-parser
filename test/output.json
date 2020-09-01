@@ -1,0 +1,3269 @@
+{
+  "type": "Stylesheet",
+  "rules": [
+    {
+      "type": "CharsetRule",
+      "loc": {
+        "start": {
+          "line": 1,
+          "col": 0
+        },
+        "end": {
+          "line": 1,
+          "col": 17
+        }
+      },
+      "encoding": {
+        "type": "String",
+        "loc": {
+          "start": {
+            "line": 1,
+            "col": 9
+          },
+          "end": {
+            "line": 1,
+            "col": 16
+          }
+        },
+        "val": "utf-8"
+      }
+    },
+    {
+      "type": "ImportRule",
+      "loc": {
+        "start": {
+          "line": 2,
+          "col": 0
+        },
+        "end": {
+          "line": 2,
+          "col": 26
+        }
+      },
+      "url": {
+        "type": "String",
+        "loc": {
+          "start": {
+            "line": 2,
+            "col": 8
+          },
+          "end": {
+            "line": 2,
+            "col": 19
+          }
+        },
+        "val": "path.woff"
+      },
+      "media": [
+        {
+          "type": "Identifier",
+          "loc": {
+            "start": {
+              "line": 2,
+              "col": 20
+            },
+            "end": {
+              "line": 2,
+              "col": 25
+            }
+          },
+          "name": "print"
+        }
+      ]
+    },
+    {
+      "type": "ImportRule",
+      "loc": {
+        "start": {
+          "line": 3,
+          "col": 0
+        },
+        "end": {
+          "line": 3,
+          "col": 28
+        }
+      },
+      "url": {
+        "type": "Function",
+        "name": "url",
+        "loc": {
+          "start": {
+            "line": 3,
+            "col": 8
+          },
+          "end": {
+            "line": 3,
+            "col": 21
+          }
+        },
+        "arguments": [
+          {
+            "type": "String",
+            "loc": {
+              "start": {
+                "line": 3,
+                "col": 12
+              },
+              "end": {
+                "line": 3,
+                "col": 20
+              }
+            },
+            "val": "dkkdsa"
+          }
+        ]
+      },
+      "media": [
+        {
+          "type": "Identifier",
+          "loc": {
+            "start": {
+              "line": 3,
+              "col": 22
+            },
+            "end": {
+              "line": 3,
+              "col": 27
+            }
+          },
+          "name": "print"
+        }
+      ]
+    },
+    {
+      "type": "StyleRule",
+      "loc": {
+        "start": {
+          "line": 5,
+          "col": 0
+        },
+        "end": {
+          "line": 9,
+          "col": 1
+        }
+      },
+      "selectors": [
+        {
+          "type": "SelectorPattern",
+          "loc": {
+            "start": {
+              "line": 5,
+              "col": 0
+            },
+            "end": {
+              "line": 5,
+              "col": 9
+            }
+          },
+          "selectors": [
+            {
+              "type": "ClassSelector",
+              "loc": {
+                "start": {
+                  "line": 5,
+                  "col": 0
+                },
+                "end": {
+                  "line": 5,
+                  "col": 8
+                }
+              },
+              "name": "visible"
+            }
+          ]
+        },
+        {
+          "type": "SelectorPattern",
+          "loc": {
+            "start": {
+              "line": 6,
+              "col": 0
+            },
+            "end": {
+              "line": 7,
+              "col": 1
+            }
+          },
+          "selectors": [
+            {
+              "type": "TagSelector",
+              "loc": {
+                "start": {
+                  "line": 6,
+                  "col": 0
+                },
+                "end": {
+                  "line": 6,
+                  "col": 4
+                }
+              },
+              "name": "span"
+            }
+          ]
+        }
+      ],
+      "rules": {
+        "type": "Block",
+        "loc": {
+          "start": {
+            "line": 7,
+            "col": 0
+          },
+          "end": {
+            "line": 9,
+            "col": 1
+          }
+        },
+        "statements": [
+          {
+            "type": "Statement",
+            "important": true,
+            "property": "height",
+            "loc": {
+              "start": {
+                "line": 8,
+                "col": 2
+              },
+              "end": {
+                "line": 8,
+                "col": 27
+              }
+            },
+            "value": {
+              "type": "Value",
+              "loc": {
+                "start": {
+                  "line": 8,
+                  "col": 10
+                },
+                "end": {
+                  "line": 8,
+                  "col": 27
+                }
+              },
+              "parts": [
+                {
+                  "type": "Dimension",
+                  "loc": {
+                    "start": {
+                      "line": 8,
+                      "col": 10
+                    },
+                    "end": {
+                      "line": 8,
+                      "col": 15
+                    }
+                  },
+                  "val": "100",
+                  "unit": "px"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "StyleRule",
+      "loc": {
+        "start": {
+          "line": 11,
+          "col": 0
+        },
+        "end": {
+          "line": 11,
+          "col": 8
+        }
+      },
+      "selectors": [
+        {
+          "type": "SelectorPattern",
+          "loc": {
+            "start": {
+              "line": 11,
+              "col": 0
+            },
+            "end": {
+              "line": 11,
+              "col": 7
+            }
+          },
+          "selectors": [
+            {
+              "type": "ClassSelector",
+              "loc": {
+                "start": {
+                  "line": 11,
+                  "col": 0
+                },
+                "end": {
+                  "line": 11,
+                  "col": 5
+                }
+              },
+              "name": "name"
+            }
+          ]
+        }
+      ],
+      "rules": {
+        "type": "Block",
+        "loc": {
+          "start": {
+            "line": 11,
+            "col": 6
+          },
+          "end": {
+            "line": 11,
+            "col": 8
+          }
+        },
+        "statements": []
+      }
+    },
+    {
+      "type": "StyleRule",
+      "loc": {
+        "start": {
+          "line": 12,
+          "col": 0
+        },
+        "end": {
+          "line": 12,
+          "col": 7
+        }
+      },
+      "selectors": [
+        {
+          "type": "SelectorPattern",
+          "loc": {
+            "start": {
+              "line": 12,
+              "col": 0
+            },
+            "end": {
+              "line": 12,
+              "col": 6
+            }
+          },
+          "selectors": [
+            {
+              "type": "TagSelector",
+              "loc": {
+                "start": {
+                  "line": 12,
+                  "col": 0
+                },
+                "end": {
+                  "line": 12,
+                  "col": 4
+                }
+              },
+              "name": "name"
+            }
+          ]
+        }
+      ],
+      "rules": {
+        "type": "Block",
+        "loc": {
+          "start": {
+            "line": 12,
+            "col": 5
+          },
+          "end": {
+            "line": 12,
+            "col": 7
+          }
+        },
+        "statements": []
+      }
+    },
+    {
+      "type": "StyleRule",
+      "loc": {
+        "start": {
+          "line": 13,
+          "col": 0
+        },
+        "end": {
+          "line": 13,
+          "col": 8
+        }
+      },
+      "selectors": [
+        {
+          "type": "SelectorPattern",
+          "loc": {
+            "start": {
+              "line": 13,
+              "col": 0
+            },
+            "end": {
+              "line": 13,
+              "col": 7
+            }
+          },
+          "selectors": [
+            {
+              "type": "IdSelector",
+              "loc": {
+                "start": {
+                  "line": 13,
+                  "col": 0
+                },
+                "end": {
+                  "line": 13,
+                  "col": 5
+                }
+              },
+              "name": "name"
+            }
+          ]
+        }
+      ],
+      "rules": {
+        "type": "Block",
+        "loc": {
+          "start": {
+            "line": 13,
+            "col": 6
+          },
+          "end": {
+            "line": 13,
+            "col": 8
+          }
+        },
+        "statements": []
+      }
+    },
+    {
+      "type": "KeyframesRule",
+      "loc": {
+        "start": {
+          "line": 15,
+          "col": 0
+        },
+        "end": {
+          "line": 21,
+          "col": 1
+        }
+      },
+      "name": "mymove",
+      "arguments": [
+        {
+          "type": "StyleRule",
+          "loc": {
+            "start": {
+              "line": 16,
+              "col": 2
+            },
+            "end": {
+              "line": 16,
+              "col": 18
+            }
+          },
+          "selectors": [
+            {
+              "type": "SelectorPattern",
+              "loc": {
+                "start": {
+                  "line": 16,
+                  "col": 2
+                },
+                "end": {
+                  "line": 16,
+                  "col": 8
+                }
+              },
+              "selectors": [
+                {
+                  "type": "TagSelector",
+                  "loc": {
+                    "start": {
+                      "line": 16,
+                      "col": 2
+                    },
+                    "end": {
+                      "line": 16,
+                      "col": 6
+                    }
+                  },
+                  "name": "from"
+                }
+              ]
+            }
+          ],
+          "rules": {
+            "type": "Block",
+            "loc": {
+              "start": {
+                "line": 16,
+                "col": 7
+              },
+              "end": {
+                "line": 16,
+                "col": 18
+              }
+            },
+            "statements": [
+              {
+                "type": "Statement",
+                "important": false,
+                "property": "top",
+                "loc": {
+                  "start": {
+                    "line": 16,
+                    "col": 8
+                  },
+                  "end": {
+                    "line": 16,
+                    "col": 17
+                  }
+                },
+                "value": {
+                  "type": "Value",
+                  "loc": {
+                    "start": {
+                      "line": 16,
+                      "col": 13
+                    },
+                    "end": {
+                      "line": 16,
+                      "col": 17
+                    }
+                  },
+                  "parts": [
+                    {
+                      "type": "Dimension",
+                      "loc": {
+                        "start": {
+                          "line": 16,
+                          "col": 13
+                        },
+                        "end": {
+                          "line": 16,
+                          "col": 16
+                        }
+                      },
+                      "val": "0",
+                      "unit": "px"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "StyleRule",
+          "loc": {
+            "start": {
+              "line": 17,
+              "col": 2
+            },
+            "end": {
+              "line": 17,
+              "col": 18
+            }
+          },
+          "selectors": [
+            {
+              "type": "SelectorPattern",
+              "loc": {
+                "start": {
+                  "line": 17,
+                  "col": 2
+                },
+                "end": {
+                  "line": 17,
+                  "col": 6
+                }
+              },
+              "selectors": []
+            }
+          ],
+          "rules": {
+            "type": "Block",
+            "loc": {
+              "start": {
+                "line": 17,
+                "col": 5
+              },
+              "end": {
+                "line": 17,
+                "col": 18
+              }
+            },
+            "statements": [
+              {
+                "type": "Statement",
+                "important": false,
+                "property": "top",
+                "loc": {
+                  "start": {
+                    "line": 17,
+                    "col": 6
+                  },
+                  "end": {
+                    "line": 17,
+                    "col": 17
+                  }
+                },
+                "value": {
+                  "type": "Value",
+                  "loc": {
+                    "start": {
+                      "line": 17,
+                      "col": 11
+                    },
+                    "end": {
+                      "line": 17,
+                      "col": 17
+                    }
+                  },
+                  "parts": [
+                    {
+                      "type": "Dimension",
+                      "loc": {
+                        "start": {
+                          "line": 17,
+                          "col": 11
+                        },
+                        "end": {
+                          "line": 17,
+                          "col": 16
+                        }
+                      },
+                      "val": "200",
+                      "unit": "px"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "StyleRule",
+          "loc": {
+            "start": {
+              "line": 18,
+              "col": 2
+            },
+            "end": {
+              "line": 18,
+              "col": 20
+            }
+          },
+          "selectors": [
+            {
+              "type": "SelectorPattern",
+              "loc": {
+                "start": {
+                  "line": 18,
+                  "col": 2
+                },
+                "end": {
+                  "line": 18,
+                  "col": 8
+                }
+              },
+              "selectors": []
+            }
+          ],
+          "rules": {
+            "type": "Block",
+            "loc": {
+              "start": {
+                "line": 18,
+                "col": 7
+              },
+              "end": {
+                "line": 18,
+                "col": 20
+              }
+            },
+            "statements": [
+              {
+                "type": "Statement",
+                "important": false,
+                "property": "top",
+                "loc": {
+                  "start": {
+                    "line": 18,
+                    "col": 8
+                  },
+                  "end": {
+                    "line": 18,
+                    "col": 19
+                  }
+                },
+                "value": {
+                  "type": "Value",
+                  "loc": {
+                    "start": {
+                      "line": 18,
+                      "col": 13
+                    },
+                    "end": {
+                      "line": 18,
+                      "col": 19
+                    }
+                  },
+                  "parts": [
+                    {
+                      "type": "Dimension",
+                      "loc": {
+                        "start": {
+                          "line": 18,
+                          "col": 13
+                        },
+                        "end": {
+                          "line": 18,
+                          "col": 18
+                        }
+                      },
+                      "val": "200",
+                      "unit": "px"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "StyleRule",
+          "loc": {
+            "start": {
+              "line": 19,
+              "col": 2
+            },
+            "end": {
+              "line": 19,
+              "col": 22
+            }
+          },
+          "selectors": [
+            {
+              "type": "SelectorPattern",
+              "loc": {
+                "start": {
+                  "line": 19,
+                  "col": 2
+                },
+                "end": {
+                  "line": 19,
+                  "col": 10
+                }
+              },
+              "selectors": []
+            }
+          ],
+          "rules": {
+            "type": "Block",
+            "loc": {
+              "start": {
+                "line": 19,
+                "col": 9
+              },
+              "end": {
+                "line": 19,
+                "col": 22
+              }
+            },
+            "statements": [
+              {
+                "type": "Statement",
+                "important": false,
+                "property": "top",
+                "loc": {
+                  "start": {
+                    "line": 19,
+                    "col": 10
+                  },
+                  "end": {
+                    "line": 19,
+                    "col": 21
+                  }
+                },
+                "value": {
+                  "type": "Value",
+                  "loc": {
+                    "start": {
+                      "line": 19,
+                      "col": 15
+                    },
+                    "end": {
+                      "line": 19,
+                      "col": 21
+                    }
+                  },
+                  "parts": [
+                    {
+                      "type": "Dimension",
+                      "loc": {
+                        "start": {
+                          "line": 19,
+                          "col": 15
+                        },
+                        "end": {
+                          "line": 19,
+                          "col": 20
+                        }
+                      },
+                      "val": "200",
+                      "unit": "px"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "StyleRule",
+          "loc": {
+            "start": {
+              "line": 20,
+              "col": 2
+            },
+            "end": {
+              "line": 20,
+              "col": 19
+            }
+          },
+          "selectors": [
+            {
+              "type": "SelectorPattern",
+              "loc": {
+                "start": {
+                  "line": 20,
+                  "col": 2
+                },
+                "end": {
+                  "line": 20,
+                  "col": 7
+                }
+              },
+              "selectors": [
+                {
+                  "type": "Percentage",
+                  "loc": {
+                    "start": {
+                      "line": 20,
+                      "col": 2
+                    },
+                    "end": {
+                      "line": 20,
+                      "col": 5
+                    }
+                  },
+                  "val": "10"
+                }
+              ]
+            }
+          ],
+          "rules": {
+            "type": "Block",
+            "loc": {
+              "start": {
+                "line": 20,
+                "col": 6
+              },
+              "end": {
+                "line": 20,
+                "col": 19
+              }
+            },
+            "statements": [
+              {
+                "type": "Statement",
+                "important": false,
+                "property": "top",
+                "loc": {
+                  "start": {
+                    "line": 20,
+                    "col": 7
+                  },
+                  "end": {
+                    "line": 20,
+                    "col": 18
+                  }
+                },
+                "value": {
+                  "type": "Value",
+                  "loc": {
+                    "start": {
+                      "line": 20,
+                      "col": 12
+                    },
+                    "end": {
+                      "line": 20,
+                      "col": 18
+                    }
+                  },
+                  "parts": [
+                    {
+                      "type": "Dimension",
+                      "loc": {
+                        "start": {
+                          "line": 20,
+                          "col": 12
+                        },
+                        "end": {
+                          "line": 20,
+                          "col": 17
+                        }
+                      },
+                      "val": "200",
+                      "unit": "px"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "StyleRule",
+      "loc": {
+        "start": {
+          "line": 23,
+          "col": 0
+        },
+        "end": {
+          "line": 25,
+          "col": 1
+        }
+      },
+      "selectors": [
+        {
+          "type": "SelectorPattern",
+          "loc": {
+            "start": {
+              "line": 23,
+              "col": 0
+            },
+            "end": {
+              "line": 23,
+              "col": 37
+            }
+          },
+          "selectors": [
+            {
+              "type": "TagSelector",
+              "loc": {
+                "start": {
+                  "line": 23,
+                  "col": 0
+                },
+                "end": {
+                  "line": 23,
+                  "col": 4
+                }
+              },
+              "name": "span"
+            },
+            {
+              "type": "PseudoClassSelector",
+              "loc": {
+                "start": {
+                  "line": 23,
+                  "col": 4
+                },
+                "end": {
+                  "line": 23,
+                  "col": 10
+                }
+              },
+              "name": "hover"
+            },
+            {
+              "type": "AttributeSelector",
+              "loc": {
+                "start": {
+                  "line": 23,
+                  "col": 11
+                },
+                "end": {
+                  "line": 23,
+                  "col": 25
+                }
+              },
+              "name": {
+                "type": "Identifier",
+                "loc": {
+                  "start": {
+                    "line": 23,
+                    "col": 12
+                  },
+                  "end": {
+                    "line": 23,
+                    "col": 16
+                  }
+                },
+                "name": "type"
+              },
+              "operator": "$=",
+              "value": {
+                "type": "String",
+                "loc": {
+                  "start": {
+                    "line": 23,
+                    "col": 18
+                  },
+                  "end": {
+                    "line": 23,
+                    "col": 24
+                  }
+                },
+                "val": "text"
+              }
+            },
+            {
+              "type": "AttributeSelector",
+              "loc": {
+                "start": {
+                  "line": 23,
+                  "col": 26
+                },
+                "end": {
+                  "line": 23,
+                  "col": 35
+                }
+              },
+              "name": {
+                "type": "Identifier",
+                "loc": {
+                  "start": {
+                    "line": 23,
+                    "col": 27
+                  },
+                  "end": {
+                    "line": 23,
+                    "col": 34
+                  }
+                },
+                "name": "v-cloak"
+              },
+              "operator": null,
+              "value": null
+            }
+          ]
+        }
+      ],
+      "rules": {
+        "type": "Block",
+        "loc": {
+          "start": {
+            "line": 23,
+            "col": 36
+          },
+          "end": {
+            "line": 25,
+            "col": 1
+          }
+        },
+        "statements": [
+          {
+            "type": "Statement",
+            "important": false,
+            "property": "font-size",
+            "loc": {
+              "start": {
+                "line": 24,
+                "col": 2
+              },
+              "end": {
+                "line": 24,
+                "col": 24
+              }
+            },
+            "value": {
+              "type": "Value",
+              "loc": {
+                "start": {
+                  "line": 24,
+                  "col": 13
+                },
+                "end": {
+                  "line": 24,
+                  "col": 24
+                }
+              },
+              "parts": [
+                {
+                  "type": "Number",
+                  "loc": {
+                    "start": {
+                      "line": 24,
+                      "col": 13
+                    },
+                    "end": {
+                      "line": 24,
+                      "col": 15
+                    }
+                  },
+                  "val": "10"
+                },
+                {
+                  "type": "Identifier",
+                  "loc": {
+                    "start": {
+                      "line": 24,
+                      "col": 16
+                    },
+                    "end": {
+                      "line": 24,
+                      "col": 23
+                    }
+                  },
+                  "name": "inherit"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "StyleRule",
+      "loc": {
+        "start": {
+          "line": 27,
+          "col": 0
+        },
+        "end": {
+          "line": 27,
+          "col": 14
+        }
+      },
+      "selectors": [
+        {
+          "type": "SelectorPattern",
+          "loc": {
+            "start": {
+              "line": 27,
+              "col": 0
+            },
+            "end": {
+              "line": 27,
+              "col": 13
+            }
+          },
+          "selectors": [
+            {
+              "type": "TagSelector",
+              "loc": {
+                "start": {
+                  "line": 27,
+                  "col": 0
+                },
+                "end": {
+                  "line": 27,
+                  "col": 4
+                }
+              },
+              "name": "body"
+            },
+            {
+              "type": "PsuedoElementSelector",
+              "loc": {
+                "start": {
+                  "line": 27,
+                  "col": 4
+                },
+                "end": {
+                  "line": 27,
+                  "col": 11
+                }
+              },
+              "name": "after"
+            }
+          ]
+        }
+      ],
+      "rules": {
+        "type": "Block",
+        "loc": {
+          "start": {
+            "line": 27,
+            "col": 12
+          },
+          "end": {
+            "line": 27,
+            "col": 14
+          }
+        },
+        "statements": []
+      }
+    },
+    {
+      "type": "StyleRule",
+      "loc": {
+        "start": {
+          "line": 29,
+          "col": 0
+        },
+        "end": {
+          "line": 41,
+          "col": 1
+        }
+      },
+      "selectors": [
+        {
+          "type": "SelectorPattern",
+          "loc": {
+            "start": {
+              "line": 29,
+              "col": 0
+            },
+            "end": {
+              "line": 29,
+              "col": 32
+            }
+          },
+          "selectors": [
+            {
+              "type": "ClassSelector",
+              "loc": {
+                "start": {
+                  "line": 29,
+                  "col": 0
+                },
+                "end": {
+                  "line": 29,
+                  "col": 9
+                }
+              },
+              "name": "progress"
+            },
+            {
+              "type": "ClassSelector",
+              "loc": {
+                "start": {
+                  "line": 29,
+                  "col": 10
+                },
+                "end": {
+                  "line": 29,
+                  "col": 24
+                }
+              },
+              "name": "indeterminate"
+            },
+            {
+              "type": "PseudoClassSelector",
+              "loc": {
+                "start": {
+                  "line": 29,
+                  "col": 24
+                },
+                "end": {
+                  "line": 29,
+                  "col": 30
+                }
+              },
+              "name": "after"
+            }
+          ]
+        }
+      ],
+      "rules": {
+        "type": "Block",
+        "loc": {
+          "start": {
+            "line": 29,
+            "col": 31
+          },
+          "end": {
+            "line": 41,
+            "col": 1
+          }
+        },
+        "statements": [
+          {
+            "type": "Statement",
+            "important": false,
+            "property": "content",
+            "loc": {
+              "start": {
+                "line": 30,
+                "col": 2
+              },
+              "end": {
+                "line": 30,
+                "col": 14
+              }
+            },
+            "value": {
+              "type": "Value",
+              "loc": {
+                "start": {
+                  "line": 30,
+                  "col": 11
+                },
+                "end": {
+                  "line": 30,
+                  "col": 14
+                }
+              },
+              "parts": [
+                {
+                  "type": "String",
+                  "loc": {
+                    "start": {
+                      "line": 30,
+                      "col": 11
+                    },
+                    "end": {
+                      "line": 30,
+                      "col": 13
+                    }
+                  },
+                  "val": ""
+                }
+              ]
+            }
+          },
+          {
+            "type": "Statement",
+            "important": false,
+            "property": "position",
+            "loc": {
+              "start": {
+                "line": 31,
+                "col": 2
+              },
+              "end": {
+                "line": 31,
+                "col": 21
+              }
+            },
+            "value": {
+              "type": "Value",
+              "loc": {
+                "start": {
+                  "line": 31,
+                  "col": 12
+                },
+                "end": {
+                  "line": 31,
+                  "col": 21
+                }
+              },
+              "parts": [
+                {
+                  "type": "Identifier",
+                  "loc": {
+                    "start": {
+                      "line": 31,
+                      "col": 12
+                    },
+                    "end": {
+                      "line": 31,
+                      "col": 20
+                    }
+                  },
+                  "name": "absolute"
+                }
+              ]
+            }
+          },
+          {
+            "type": "Statement",
+            "important": false,
+            "property": "background-color",
+            "loc": {
+              "start": {
+                "line": 32,
+                "col": 2
+              },
+              "end": {
+                "line": 32,
+                "col": 28
+              }
+            },
+            "value": {
+              "type": "Value",
+              "loc": {
+                "start": {
+                  "line": 32,
+                  "col": 20
+                },
+                "end": {
+                  "line": 32,
+                  "col": 28
+                }
+              },
+              "parts": [
+                {
+                  "type": "Identifier",
+                  "loc": {
+                    "start": {
+                      "line": 32,
+                      "col": 20
+                    },
+                    "end": {
+                      "line": 32,
+                      "col": 27
+                    }
+                  },
+                  "name": "inherit"
+                }
+              ]
+            }
+          },
+          {
+            "type": "Statement",
+            "important": false,
+            "property": "top",
+            "loc": {
+              "start": {
+                "line": 33,
+                "col": 2
+              },
+              "end": {
+                "line": 33,
+                "col": 9
+              }
+            },
+            "value": {
+              "type": "Value",
+              "loc": {
+                "start": {
+                  "line": 33,
+                  "col": 7
+                },
+                "end": {
+                  "line": 33,
+                  "col": 9
+                }
+              },
+              "parts": [
+                {
+                  "type": "Number",
+                  "loc": {
+                    "start": {
+                      "line": 33,
+                      "col": 7
+                    },
+                    "end": {
+                      "line": 33,
+                      "col": 8
+                    }
+                  },
+                  "val": "0"
+                }
+              ]
+            }
+          },
+          {
+            "type": "Statement",
+            "important": false,
+            "property": "left",
+            "loc": {
+              "start": {
+                "line": 34,
+                "col": 2
+              },
+              "end": {
+                "line": 34,
+                "col": 10
+              }
+            },
+            "value": {
+              "type": "Value",
+              "loc": {
+                "start": {
+                  "line": 34,
+                  "col": 8
+                },
+                "end": {
+                  "line": 34,
+                  "col": 10
+                }
+              },
+              "parts": [
+                {
+                  "type": "Number",
+                  "loc": {
+                    "start": {
+                      "line": 34,
+                      "col": 8
+                    },
+                    "end": {
+                      "line": 34,
+                      "col": 9
+                    }
+                  },
+                  "val": "0"
+                }
+              ]
+            }
+          },
+          {
+            "type": "Statement",
+            "important": false,
+            "property": "bottom",
+            "loc": {
+              "start": {
+                "line": 35,
+                "col": 2
+              },
+              "end": {
+                "line": 35,
+                "col": 12
+              }
+            },
+            "value": {
+              "type": "Value",
+              "loc": {
+                "start": {
+                  "line": 35,
+                  "col": 10
+                },
+                "end": {
+                  "line": 35,
+                  "col": 12
+                }
+              },
+              "parts": [
+                {
+                  "type": "Number",
+                  "loc": {
+                    "start": {
+                      "line": 35,
+                      "col": 10
+                    },
+                    "end": {
+                      "line": 35,
+                      "col": 11
+                    }
+                  },
+                  "val": "0"
+                }
+              ]
+            }
+          },
+          {
+            "type": "Statement",
+            "important": false,
+            "property": "will-change",
+            "loc": {
+              "start": {
+                "line": 36,
+                "col": 2
+              },
+              "end": {
+                "line": 36,
+                "col": 27
+              }
+            },
+            "value": {
+              "type": "Value",
+              "loc": {
+                "start": {
+                  "line": 36,
+                  "col": 15
+                },
+                "end": {
+                  "line": 36,
+                  "col": 27
+                }
+              },
+              "parts": [
+                {
+                  "type": "Identifier",
+                  "loc": {
+                    "start": {
+                      "line": 36,
+                      "col": 15
+                    },
+                    "end": {
+                      "line": 36,
+                      "col": 19
+                    }
+                  },
+                  "name": "left"
+                },
+                {
+                  "type": "Identifier",
+                  "loc": {
+                    "start": {
+                      "line": 36,
+                      "col": 21
+                    },
+                    "end": {
+                      "line": 36,
+                      "col": 26
+                    }
+                  },
+                  "name": "right"
+                }
+              ]
+            }
+          },
+          {
+            "type": "Statement",
+            "important": false,
+            "property": "-webkit-animation",
+            "loc": {
+              "start": {
+                "line": 37,
+                "col": 2
+              },
+              "end": {
+                "line": 37,
+                "col": 90
+              }
+            },
+            "value": {
+              "type": "Value",
+              "loc": {
+                "start": {
+                  "line": 37,
+                  "col": 21
+                },
+                "end": {
+                  "line": 37,
+                  "col": 90
+                }
+              },
+              "parts": [
+                {
+                  "type": "Identifier",
+                  "loc": {
+                    "start": {
+                      "line": 37,
+                      "col": 21
+                    },
+                    "end": {
+                      "line": 37,
+                      "col": 40
+                    }
+                  },
+                  "name": "indeterminate-short"
+                },
+                {
+                  "type": "Dimension",
+                  "loc": {
+                    "start": {
+                      "line": 37,
+                      "col": 41
+                    },
+                    "end": {
+                      "line": 37,
+                      "col": 45
+                    }
+                  },
+                  "val": "2.1",
+                  "unit": "s"
+                },
+                {
+                  "type": "Function",
+                  "name": "cubic-bezier",
+                  "loc": {
+                    "start": {
+                      "line": 37,
+                      "col": 46
+                    },
+                    "end": {
+                      "line": 37,
+                      "col": 80
+                    }
+                  },
+                  "arguments": [
+                    {
+                      "type": "Number",
+                      "loc": {
+                        "start": {
+                          "line": 37,
+                          "col": 59
+                        },
+                        "end": {
+                          "line": 37,
+                          "col": 64
+                        }
+                      },
+                      "val": "0.165"
+                    },
+                    {
+                      "type": "Number",
+                      "loc": {
+                        "start": {
+                          "line": 37,
+                          "col": 66
+                        },
+                        "end": {
+                          "line": 37,
+                          "col": 70
+                        }
+                      },
+                      "val": "0.84"
+                    },
+                    {
+                      "type": "Number",
+                      "loc": {
+                        "start": {
+                          "line": 37,
+                          "col": 72
+                        },
+                        "end": {
+                          "line": 37,
+                          "col": 76
+                        }
+                      },
+                      "val": "0.44"
+                    },
+                    {
+                      "type": "Number",
+                      "loc": {
+                        "start": {
+                          "line": 37,
+                          "col": 78
+                        },
+                        "end": {
+                          "line": 37,
+                          "col": 79
+                        }
+                      },
+                      "val": "1"
+                    }
+                  ]
+                },
+                {
+                  "type": "Identifier",
+                  "loc": {
+                    "start": {
+                      "line": 37,
+                      "col": 81
+                    },
+                    "end": {
+                      "line": 37,
+                      "col": 89
+                    }
+                  },
+                  "name": "infinite"
+                }
+              ]
+            }
+          },
+          {
+            "type": "Statement",
+            "important": false,
+            "property": "animation",
+            "loc": {
+              "start": {
+                "line": 38,
+                "col": 10
+              },
+              "end": {
+                "line": 38,
+                "col": 87
+              }
+            },
+            "value": {
+              "type": "Value",
+              "loc": {
+                "start": {
+                  "line": 38,
+                  "col": 21
+                },
+                "end": {
+                  "line": 38,
+                  "col": 87
+                }
+              },
+              "parts": [
+                {
+                  "type": "Identifier",
+                  "loc": {
+                    "start": {
+                      "line": 38,
+                      "col": 21
+                    },
+                    "end": {
+                      "line": 38,
+                      "col": 40
+                    }
+                  },
+                  "name": "indeterminate-short"
+                },
+                {
+                  "type": "Dimension",
+                  "loc": {
+                    "start": {
+                      "line": 38,
+                      "col": 41
+                    },
+                    "end": {
+                      "line": 38,
+                      "col": 45
+                    }
+                  },
+                  "val": "2.1",
+                  "unit": "s"
+                },
+                {
+                  "type": "Function",
+                  "name": "cubic-bezier",
+                  "loc": {
+                    "start": {
+                      "line": 38,
+                      "col": 46
+                    },
+                    "end": {
+                      "line": 38,
+                      "col": 77
+                    }
+                  },
+                  "arguments": [
+                    {
+                      "type": "Number",
+                      "loc": {
+                        "start": {
+                          "line": 38,
+                          "col": 59
+                        },
+                        "end": {
+                          "line": 38,
+                          "col": 63
+                        }
+                      },
+                      "val": "0165"
+                    },
+                    {
+                      "type": "Number",
+                      "loc": {
+                        "start": {
+                          "line": 38,
+                          "col": 65
+                        },
+                        "end": {
+                          "line": 38,
+                          "col": 68
+                        }
+                      },
+                      "val": "084"
+                    },
+                    {
+                      "type": "Number",
+                      "loc": {
+                        "start": {
+                          "line": 38,
+                          "col": 70
+                        },
+                        "end": {
+                          "line": 38,
+                          "col": 73
+                        }
+                      },
+                      "val": "044"
+                    },
+                    {
+                      "type": "Number",
+                      "loc": {
+                        "start": {
+                          "line": 38,
+                          "col": 75
+                        },
+                        "end": {
+                          "line": 38,
+                          "col": 76
+                        }
+                      },
+                      "val": "1"
+                    }
+                  ]
+                },
+                {
+                  "type": "Identifier",
+                  "loc": {
+                    "start": {
+                      "line": 38,
+                      "col": 78
+                    },
+                    "end": {
+                      "line": 38,
+                      "col": 86
+                    }
+                  },
+                  "name": "infinite"
+                }
+              ]
+            }
+          },
+          {
+            "type": "Statement",
+            "important": false,
+            "property": "-webkit-animation-delay",
+            "loc": {
+              "start": {
+                "line": 39,
+                "col": 2
+              },
+              "end": {
+                "line": 39,
+                "col": 33
+              }
+            },
+            "value": {
+              "type": "Value",
+              "loc": {
+                "start": {
+                  "line": 39,
+                  "col": 27
+                },
+                "end": {
+                  "line": 39,
+                  "col": 33
+                }
+              },
+              "parts": [
+                {
+                  "type": "Dimension",
+                  "loc": {
+                    "start": {
+                      "line": 39,
+                      "col": 27
+                    },
+                    "end": {
+                      "line": 39,
+                      "col": 32
+                    }
+                  },
+                  "val": "1.15",
+                  "unit": "s"
+                }
+              ]
+            }
+          },
+          {
+            "type": "Statement",
+            "important": false,
+            "property": "animation-delay",
+            "loc": {
+              "start": {
+                "line": 40,
+                "col": 10
+              },
+              "end": {
+                "line": 40,
+                "col": 33
+              }
+            },
+            "value": {
+              "type": "Value",
+              "loc": {
+                "start": {
+                  "line": 40,
+                  "col": 27
+                },
+                "end": {
+                  "line": 40,
+                  "col": 33
+                }
+              },
+              "parts": [
+                {
+                  "type": "Dimension",
+                  "loc": {
+                    "start": {
+                      "line": 40,
+                      "col": 27
+                    },
+                    "end": {
+                      "line": 40,
+                      "col": 32
+                    }
+                  },
+                  "val": "1.15",
+                  "unit": "s"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "StyleRule",
+      "loc": {
+        "start": {
+          "line": 43,
+          "col": 0
+        },
+        "end": {
+          "line": 49,
+          "col": 1
+        }
+      },
+      "selectors": [
+        {
+          "type": "SelectorPattern",
+          "loc": {
+            "start": {
+              "line": 43,
+              "col": 0
+            },
+            "end": {
+              "line": 43,
+              "col": 21
+            }
+          },
+          "selectors": [
+            {
+              "type": "IdSelector",
+              "loc": {
+                "start": {
+                  "line": 43,
+                  "col": 0
+                },
+                "end": {
+                  "line": 43,
+                  "col": 6
+                }
+              },
+              "name": "about"
+            },
+            {
+              "type": "ClassSelector",
+              "loc": {
+                "start": {
+                  "line": 43,
+                  "col": 7
+                },
+                "end": {
+                  "line": 43,
+                  "col": 15
+                }
+              },
+              "name": "visible"
+            },
+            {
+              "type": "TagSelector",
+              "loc": {
+                "start": {
+                  "line": 43,
+                  "col": 16
+                },
+                "end": {
+                  "line": 43,
+                  "col": 20
+                }
+              },
+              "name": "span"
+            }
+          ]
+        },
+        {
+          "type": "SelectorPattern",
+          "loc": {
+            "start": {
+              "line": 44,
+              "col": 0
+            },
+            "end": {
+              "line": 44,
+              "col": 5
+            }
+          },
+          "selectors": [
+            {
+              "type": "TagSelector",
+              "loc": {
+                "start": {
+                  "line": 44,
+                  "col": 0
+                },
+                "end": {
+                  "line": 44,
+                  "col": 4
+                }
+              },
+              "name": "span"
+            }
+          ]
+        },
+        {
+          "type": "SelectorPattern",
+          "loc": {
+            "start": {
+              "line": 45,
+              "col": 0
+            },
+            "end": {
+              "line": 46,
+              "col": 1
+            }
+          },
+          "selectors": []
+        }
+      ],
+      "rules": {
+        "type": "Block",
+        "loc": {
+          "start": {
+            "line": 46,
+            "col": 0
+          },
+          "end": {
+            "line": 49,
+            "col": 1
+          }
+        },
+        "statements": [
+          {
+            "type": "Statement",
+            "important": true,
+            "property": "height",
+            "loc": {
+              "start": {
+                "line": 47,
+                "col": 2
+              },
+              "end": {
+                "line": 47,
+                "col": 48
+              }
+            },
+            "value": {
+              "type": "Value",
+              "loc": {
+                "start": {
+                  "line": 47,
+                  "col": 10
+                },
+                "end": {
+                  "line": 47,
+                  "col": 48
+                }
+              },
+              "parts": [
+                {
+                  "type": "Dimension",
+                  "loc": {
+                    "start": {
+                      "line": 47,
+                      "col": 10
+                    },
+                    "end": {
+                      "line": 47,
+                      "col": 15
+                    }
+                  },
+                  "val": ".3",
+                  "unit": "px1"
+                },
+                {
+                  "type": "Number",
+                  "loc": {
+                    "start": {
+                      "line": 47,
+                      "col": 16
+                    },
+                    "end": {
+                      "line": 47,
+                      "col": 18
+                    }
+                  },
+                  "val": ".3"
+                },
+                {
+                  "type": "Number",
+                  "loc": {
+                    "start": {
+                      "line": 47,
+                      "col": 19
+                    },
+                    "end": {
+                      "line": 47,
+                      "col": 23
+                    }
+                  },
+                  "val": "20.2"
+                },
+                {
+                  "type": "Dimension",
+                  "loc": {
+                    "start": {
+                      "line": 47,
+                      "col": 24
+                    },
+                    "end": {
+                      "line": 47,
+                      "col": 30
+                    }
+                  },
+                  "val": "20.2",
+                  "unit": "px"
+                },
+                {
+                  "type": "Dimension",
+                  "loc": {
+                    "start": {
+                      "line": 47,
+                      "col": 31
+                    },
+                    "end": {
+                      "line": 47,
+                      "col": 36
+                    }
+                  },
+                  "val": "100",
+                  "unit": "px"
+                }
+              ]
+            }
+          },
+          {
+            "type": "Statement",
+            "important": false,
+            "property": "width",
+            "loc": {
+              "start": {
+                "line": 48,
+                "col": 2
+              },
+              "end": {
+                "line": 48,
+                "col": 29
+              }
+            },
+            "value": {
+              "type": "Value",
+              "loc": {
+                "start": {
+                  "line": 48,
+                  "col": 9
+                },
+                "end": {
+                  "line": 48,
+                  "col": 29
+                }
+              },
+              "parts": [
+                {
+                  "type": "Function",
+                  "name": "calc",
+                  "loc": {
+                    "start": {
+                      "line": 48,
+                      "col": 9
+                    },
+                    "end": {
+                      "line": 48,
+                      "col": 28
+                    }
+                  },
+                  "arguments": [
+                    {
+                      "type": "Dimension",
+                      "loc": {
+                        "start": {
+                          "line": 48,
+                          "col": 14
+                        },
+                        "end": {
+                          "line": 48,
+                          "col": 20
+                        }
+                      },
+                      "val": "100.",
+                      "unit": "px"
+                    },
+                    {
+                      "type": "Identifier",
+                      "loc": {
+                        "start": {
+                          "line": 48,
+                          "col": 21
+                        },
+                        "end": {
+                          "line": 48,
+                          "col": 22
+                        }
+                      },
+                      "name": "-"
+                    },
+                    {
+                      "type": "Percentage",
+                      "loc": {
+                        "start": {
+                          "line": 48,
+                          "col": 23
+                        },
+                        "end": {
+                          "line": 48,
+                          "col": 27
+                        }
+                      },
+                      "val": "1.4"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "MediaQueryList",
+      "loc": {
+        "start": {
+          "line": 50,
+          "col": 0
+        },
+        "end": {
+          "line": 60,
+          "col": 1
+        }
+      },
+      "queries": [
+        {
+          "type": "MediaRule",
+          "loc": {
+            "start": {
+              "line": 50,
+              "col": 7
+            },
+            "end": {
+              "line": 50,
+              "col": 38
+            }
+          },
+          "def": [
+            {
+              "type": "Identifier",
+              "loc": {
+                "start": {
+                  "line": 50,
+                  "col": 7
+                },
+                "end": {
+                  "line": 50,
+                  "col": 13
+                }
+              },
+              "name": "screen"
+            },
+            {
+              "type": "Identifier",
+              "loc": {
+                "start": {
+                  "line": 50,
+                  "col": 14
+                },
+                "end": {
+                  "line": 50,
+                  "col": 17
+                }
+              },
+              "name": "and"
+            },
+            {
+              "type": "MediaFeature",
+              "loc": {
+                "start": {
+                  "line": 50,
+                  "col": 18
+                },
+                "end": {
+                  "line": 50,
+                  "col": 36
+                }
+              },
+              "prop": {
+                "type": "Identifier",
+                "loc": {
+                  "start": {
+                    "line": 50,
+                    "col": 19
+                  },
+                  "end": {
+                    "line": 50,
+                    "col": 28
+                  }
+                },
+                "name": "max-width"
+              },
+              "val": {
+                "type": "Dimension",
+                "loc": {
+                  "start": {
+                    "line": 50,
+                    "col": 30
+                  },
+                  "end": {
+                    "line": 50,
+                    "col": 35
+                  }
+                },
+                "val": "900",
+                "unit": "px"
+              }
+            }
+          ]
+        }
+      ],
+      "selectors": [
+        {
+          "type": "StyleRule",
+          "loc": {
+            "start": {
+              "line": 51,
+              "col": 2
+            },
+            "end": {
+              "line": 54,
+              "col": 3
+            }
+          },
+          "selectors": [
+            {
+              "type": "SelectorPattern",
+              "loc": {
+                "start": {
+                  "line": 51,
+                  "col": 2
+                },
+                "end": {
+                  "line": 51,
+                  "col": 8
+                }
+              },
+              "selectors": [
+                {
+                  "type": "TagSelector",
+                  "loc": {
+                    "start": {
+                      "line": 51,
+                      "col": 2
+                    },
+                    "end": {
+                      "line": 51,
+                      "col": 6
+                    }
+                  },
+                  "name": "html"
+                }
+              ]
+            }
+          ],
+          "rules": {
+            "type": "Block",
+            "loc": {
+              "start": {
+                "line": 51,
+                "col": 7
+              },
+              "end": {
+                "line": 54,
+                "col": 3
+              }
+            },
+            "statements": [
+              {
+                "type": "Statement",
+                "important": true,
+                "property": "height",
+                "loc": {
+                  "start": {
+                    "line": 52,
+                    "col": 4
+                  },
+                  "end": {
+                    "line": 52,
+                    "col": 50
+                  }
+                },
+                "value": {
+                  "type": "Value",
+                  "loc": {
+                    "start": {
+                      "line": 52,
+                      "col": 12
+                    },
+                    "end": {
+                      "line": 52,
+                      "col": 50
+                    }
+                  },
+                  "parts": [
+                    {
+                      "type": "Dimension",
+                      "loc": {
+                        "start": {
+                          "line": 52,
+                          "col": 12
+                        },
+                        "end": {
+                          "line": 52,
+                          "col": 17
+                        }
+                      },
+                      "val": ".3",
+                      "unit": "px1"
+                    },
+                    {
+                      "type": "Number",
+                      "loc": {
+                        "start": {
+                          "line": 52,
+                          "col": 18
+                        },
+                        "end": {
+                          "line": 52,
+                          "col": 20
+                        }
+                      },
+                      "val": ".3"
+                    },
+                    {
+                      "type": "Number",
+                      "loc": {
+                        "start": {
+                          "line": 52,
+                          "col": 21
+                        },
+                        "end": {
+                          "line": 52,
+                          "col": 25
+                        }
+                      },
+                      "val": "20.2"
+                    },
+                    {
+                      "type": "Dimension",
+                      "loc": {
+                        "start": {
+                          "line": 52,
+                          "col": 26
+                        },
+                        "end": {
+                          "line": 52,
+                          "col": 32
+                        }
+                      },
+                      "val": "20.2",
+                      "unit": "px"
+                    },
+                    {
+                      "type": "Dimension",
+                      "loc": {
+                        "start": {
+                          "line": 52,
+                          "col": 33
+                        },
+                        "end": {
+                          "line": 52,
+                          "col": 38
+                        }
+                      },
+                      "val": "100",
+                      "unit": "px"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Statement",
+                "important": false,
+                "property": "width",
+                "loc": {
+                  "start": {
+                    "line": 53,
+                    "col": 4
+                  },
+                  "end": {
+                    "line": 53,
+                    "col": 31
+                  }
+                },
+                "value": {
+                  "type": "Value",
+                  "loc": {
+                    "start": {
+                      "line": 53,
+                      "col": 11
+                    },
+                    "end": {
+                      "line": 53,
+                      "col": 31
+                    }
+                  },
+                  "parts": [
+                    {
+                      "type": "Function",
+                      "name": "calc",
+                      "loc": {
+                        "start": {
+                          "line": 53,
+                          "col": 11
+                        },
+                        "end": {
+                          "line": 53,
+                          "col": 30
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "Dimension",
+                          "loc": {
+                            "start": {
+                              "line": 53,
+                              "col": 16
+                            },
+                            "end": {
+                              "line": 53,
+                              "col": 22
+                            }
+                          },
+                          "val": "100.",
+                          "unit": "px"
+                        },
+                        null,
+                        {
+                          "type": "Percentage",
+                          "loc": {
+                            "start": {
+                              "line": 53,
+                              "col": 25
+                            },
+                            "end": {
+                              "line": 53,
+                              "col": 29
+                            }
+                          },
+                          "val": "1.4"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "StyleRule",
+          "loc": {
+            "start": {
+              "line": 56,
+              "col": 2
+            },
+            "end": {
+              "line": 59,
+              "col": 3
+            }
+          },
+          "selectors": [
+            {
+              "type": "SelectorPattern",
+              "loc": {
+                "start": {
+                  "line": 56,
+                  "col": 2
+                },
+                "end": {
+                  "line": 56,
+                  "col": 8
+                }
+              },
+              "selectors": [
+                {
+                  "type": "TagSelector",
+                  "loc": {
+                    "start": {
+                      "line": 56,
+                      "col": 2
+                    },
+                    "end": {
+                      "line": 56,
+                      "col": 6
+                    }
+                  },
+                  "name": "body"
+                }
+              ]
+            }
+          ],
+          "rules": {
+            "type": "Block",
+            "loc": {
+              "start": {
+                "line": 56,
+                "col": 7
+              },
+              "end": {
+                "line": 59,
+                "col": 3
+              }
+            },
+            "statements": [
+              {
+                "type": "Statement",
+                "important": false,
+                "property": "background-color",
+                "loc": {
+                  "start": {
+                    "line": 57,
+                    "col": 4
+                  },
+                  "end": {
+                    "line": 57,
+                    "col": 32
+                  }
+                },
+                "value": {
+                  "type": "Value",
+                  "loc": {
+                    "start": {
+                      "line": 57,
+                      "col": 22
+                    },
+                    "end": {
+                      "line": 57,
+                      "col": 32
+                    }
+                  },
+                  "parts": [
+                    {
+                      "type": "Identifier",
+                      "loc": {
+                        "start": {
+                          "line": 57,
+                          "col": 22
+                        },
+                        "end": {
+                          "line": 57,
+                          "col": 31
+                        }
+                      },
+                      "name": "lightblue"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Statement",
+                "important": false,
+                "property": "content",
+                "loc": {
+                  "start": {
+                    "line": 58,
+                    "col": 4
+                  },
+                  "end": {
+                    "line": 58,
+                    "col": 27
+                  }
+                },
+                "value": {
+                  "type": "Value",
+                  "loc": {
+                    "start": {
+                      "line": 58,
+                      "col": 13
+                    },
+                    "end": {
+                      "line": 58,
+                      "col": 27
+                    }
+                  },
+                  "parts": [
+                    {
+                      "type": "String",
+                      "loc": {
+                        "start": {
+                          "line": 58,
+                          "col": 13
+                        },
+                        "end": {
+                          "line": 58,
+                          "col": 26
+                        }
+                      },
+                      "val": "A paragraph"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "ImportRule",
+      "loc": {
+        "start": {
+          "line": 62,
+          "col": 0
+        },
+        "end": {
+          "line": 62,
+          "col": 28
+        }
+      },
+      "url": {
+        "type": "Function",
+        "name": "url",
+        "loc": {
+          "start": {
+            "line": 62,
+            "col": 8
+          },
+          "end": {
+            "line": 62,
+            "col": 21
+          }
+        },
+        "arguments": [
+          {
+            "type": "String",
+            "loc": {
+              "start": {
+                "line": 62,
+                "col": 12
+              },
+              "end": {
+                "line": 62,
+                "col": 20
+              }
+            },
+            "val": "dkkdsa"
+          }
+        ]
+      },
+      "media": [
+        {
+          "type": "Identifier",
+          "loc": {
+            "start": {
+              "line": 62,
+              "col": 22
+            },
+            "end": {
+              "line": 62,
+              "col": 27
+            }
+          },
+          "name": "print"
+        }
+      ]
+    },
+    {
+      "type": "StyleRule",
+      "loc": {
+        "start": {
+          "line": 64,
+          "col": 1
+        },
+        "end": {
+          "line": 70,
+          "col": 1
+        }
+      },
+      "selectors": [
+        {
+          "type": "SelectorPattern",
+          "loc": {
+            "start": {
+              "line": 64,
+              "col": 1
+            },
+            "end": {
+              "line": 64,
+              "col": 19
+            }
+          },
+          "selectors": [
+            {
+              "type": "IdSelector",
+              "loc": {
+                "start": {
+                  "line": 64,
+                  "col": 1
+                },
+                "end": {
+                  "line": 64,
+                  "col": 7
+                }
+              },
+              "name": "about"
+            },
+            {
+              "type": "Combinator",
+              "loc": {
+                "start": {
+                  "line": 64,
+                  "col": 8
+                },
+                "end": {
+                  "line": 64,
+                  "col": 9
+                }
+              },
+              "name": "+"
+            },
+            {
+              "type": "ClassSelector",
+              "loc": {
+                "start": {
+                  "line": 64,
+                  "col": 10
+                },
+                "end": {
+                  "line": 64,
+                  "col": 18
+                }
+              },
+              "name": "visible"
+            }
+          ]
+        },
+        {
+          "type": "SelectorPattern",
+          "loc": {
+            "start": {
+              "line": 65,
+              "col": 0
+            },
+            "end": {
+              "line": 66,
+              "col": 1
+            }
+          },
+          "selectors": [
+            {
+              "type": "TagSelector",
+              "loc": {
+                "start": {
+                  "line": 65,
+                  "col": 0
+                },
+                "end": {
+                  "line": 65,
+                  "col": 4
+                }
+              },
+              "name": "span"
+            },
+            {
+              "type": "AttributeSelector",
+              "loc": {
+                "start": {
+                  "line": 65,
+                  "col": 5
+                },
+                "end": {
+                  "line": 65,
+                  "col": 18
+                }
+              },
+              "name": {
+                "type": "Identifier",
+                "loc": {
+                  "start": {
+                    "line": 65,
+                    "col": 6
+                  },
+                  "end": {
+                    "line": 65,
+                    "col": 10
+                  }
+                },
+                "name": "type"
+              },
+              "operator": "=",
+              "value": {
+                "type": "String",
+                "loc": {
+                  "start": {
+                    "line": 65,
+                    "col": 11
+                  },
+                  "end": {
+                    "line": 65,
+                    "col": 17
+                  }
+                },
+                "val": "text"
+              }
+            }
+          ]
+        }
+      ],
+      "rules": {
+        "type": "Block",
+        "loc": {
+          "start": {
+            "line": 66,
+            "col": 0
+          },
+          "end": {
+            "line": 70,
+            "col": 1
+          }
+        },
+        "statements": [
+          {
+            "type": "Statement",
+            "important": false,
+            "property": "color",
+            "loc": {
+              "start": {
+                "line": 67,
+                "col": 2
+              },
+              "end": {
+                "line": 67,
+                "col": 30
+              }
+            },
+            "value": {
+              "type": "Value",
+              "loc": {
+                "start": {
+                  "line": 67,
+                  "col": 9
+                },
+                "end": {
+                  "line": 67,
+                  "col": 30
+                }
+              },
+              "parts": [
+                {
+                  "type": "Function",
+                  "name": "rgba",
+                  "loc": {
+                    "start": {
+                      "line": 67,
+                      "col": 9
+                    },
+                    "end": {
+                      "line": 67,
+                      "col": 29
+                    }
+                  },
+                  "arguments": [
+                    {
+                      "type": "Number",
+                      "loc": {
+                        "start": {
+                          "line": 67,
+                          "col": 14
+                        },
+                        "end": {
+                          "line": 67,
+                          "col": 16
+                        }
+                      },
+                      "val": "22"
+                    },
+                    {
+                      "type": "Number",
+                      "loc": {
+                        "start": {
+                          "line": 67,
+                          "col": 18
+                        },
+                        "end": {
+                          "line": 67,
+                          "col": 20
+                        }
+                      },
+                      "val": "29"
+                    },
+                    {
+                      "type": "Number",
+                      "loc": {
+                        "start": {
+                          "line": 67,
+                          "col": 22
+                        },
+                        "end": {
+                          "line": 67,
+                          "col": 25
+                        }
+                      },
+                      "val": "120"
+                    },
+                    {
+                      "type": "Number",
+                      "loc": {
+                        "start": {
+                          "line": 67,
+                          "col": 27
+                        },
+                        "end": {
+                          "line": 67,
+                          "col": 28
+                        }
+                      },
+                      "val": "0"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "Statement",
+            "important": true,
+            "property": "height",
+            "loc": {
+              "start": {
+                "line": 68,
+                "col": 2
+              },
+              "end": {
+                "line": 68,
+                "col": 27
+              }
+            },
+            "value": {
+              "type": "Value",
+              "loc": {
+                "start": {
+                  "line": 68,
+                  "col": 10
+                },
+                "end": {
+                  "line": 68,
+                  "col": 27
+                }
+              },
+              "parts": [
+                {
+                  "type": "Dimension",
+                  "loc": {
+                    "start": {
+                      "line": 68,
+                      "col": 10
+                    },
+                    "end": {
+                      "line": 68,
+                      "col": 15
+                    }
+                  },
+                  "val": "100",
+                  "unit": "px"
+                }
+              ]
+            }
+          },
+          {
+            "type": "Statement",
+            "important": false,
+            "property": "display",
+            "loc": {
+              "start": {
+                "line": 69,
+                "col": 2
+              },
+              "end": {
+                "line": 69,
+                "col": 40
+              }
+            },
+            "value": {
+              "type": "Value",
+              "loc": {
+                "start": {
+                  "line": 69,
+                  "col": 11
+                },
+                "end": {
+                  "line": 69,
+                  "col": 40
+                }
+              },
+              "parts": [
+                {
+                  "type": "Identifier",
+                  "loc": {
+                    "start": {
+                      "line": 69,
+                      "col": 11
+                    },
+                    "end": {
+                      "line": 69,
+                      "col": 15
+                    }
+                  },
+                  "name": "flex"
+                },
+                {
+                  "type": "Hex",
+                  "loc": {
+                    "start": {
+                      "line": 69,
+                      "col": 16
+                    },
+                    "end": {
+                      "line": 69,
+                      "col": 23
+                    }
+                  },
+                  "val": "9da153"
+                },
+                {
+                  "type": "String",
+                  "loc": {
+                    "start": {
+                      "line": 69,
+                      "col": 24
+                    },
+                    "end": {
+                      "line": 69,
+                      "col": 29
+                    }
+                  },
+                  "val": "dca"
+                },
+                {
+                  "type": "Number",
+                  "loc": {
+                    "start": {
+                      "line": 69,
+                      "col": 30
+                    },
+                    "end": {
+                      "line": 69,
+                      "col": 33
+                    }
+                  },
+                  "val": "1.0"
+                },
+                {
+                  "type": "Dimension",
+                  "loc": {
+                    "start": {
+                      "line": 69,
+                      "col": 34
+                    },
+                    "end": {
+                      "line": 69,
+                      "col": 38
+                    }
+                  },
+                  "val": "10",
+                  "unit": "px"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
