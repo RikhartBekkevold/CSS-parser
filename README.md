@@ -10,7 +10,7 @@ span
 ```
 
 ## Out
-```
+```json
 {
   "type": "Stylesheet",
   "rules": [
