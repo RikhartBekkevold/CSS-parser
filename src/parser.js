@@ -20,13 +20,13 @@ exports.Parser = class Parser {
     if (this.token === token)
       throw "Expected " + token + ", instead found" + this.token
   }
-
+  
   isEnd(line, pos) {
     if (this.i >= this.tokens.length || this.token === undefined) {
       throw new SyntaxError("Unexpected end of input. Starting at line " + line + ":" + pos)
     }
   }
-  
+
   createLoc(tokenS, tokenE) {
     return {
       start: {

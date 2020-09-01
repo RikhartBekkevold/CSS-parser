@@ -2,14 +2,26 @@
 @import 'path.woff' print;
 @import url("dkkdsa") print;
 
-span:hover [type$='text'] [v-cloak] {
-  font-size: 10 inherit;
+.visible,
+span
+{
+  height: 100px !important;
 }
+
+.name {}
+name {}
+#name {}
 
 @keyframes mymove {
   from {top: 0px;}
-  to {top: 200px;}
+  10 {top: 200px;}
+  10px {top: 200px;}
+  .dasto {top: 200px;}
   10% {top: 200px;}
+}
+
+span:hover [type$='text'] [v-cloak] {
+  font-size: 10 inherit;
 }
 
 body::after {}
@@ -36,26 +48,18 @@ span,
   width: calc(100.px - 1.4%);
 }
 @media screen and (max-width: 900px) {
+  html {
+    height: .3px1 .3 20.2 20.2px 100px !important;
+    width: calc(100.px + 1.4%);
+  }
 
-html {
-  height: .3px1 .3 20.2 20.2px 100px !important;
-  width: calc(100.px + 1.4%);
+  body {
+    background-color: lightblue;
+    content: "A paragraph";
+  }
 }
 
-body {
-background-color: lightblue;
-content: "A paragraph";
-}
-}
 @import url("dkkdsa") print;
-
-
-#about .visible,
-span
-{
-  height: 100px !important;
-  display: flex;
-}
 
  #about + .visible,
 span [type="text"]

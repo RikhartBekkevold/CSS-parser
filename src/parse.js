@@ -15,8 +15,8 @@ pp.parse = function() {
 
 
 ////////////////////////////////
-pp.parseToplevel = function(noImp) {
-  if (this.isSelector())    return this.parseSelectorList(noImp)
+pp.parseToplevel = function(noImp, isKeyframe) {
+  if (this.isSelector())    return this.parseSelectorList(noImp, isKeyframe)
   if (this.isMediaQuery())  return this.parseMediaList()
   if (this.isKeyframes())   return this.parseKeyframes()
   if (this.isCharsetRule()) return this.parseCharset()
@@ -110,9 +110,8 @@ pp.parseKeyframes = function() {
   this.next()
   node.name = this.token.val
   this.next(2)
-
   while (!this.isBlockEnd()) {
-    node.arguments.push(this.parseToplevel(true))
+    node.arguments.push(this.parseToplevel(true, true))
     this.next()
   }
   node.loc.end.line = this.token.line
@@ -183,17 +182,17 @@ pp.parseMediaFeature = function() {
 
 
 ////////////////////////////////
-pp.parseSelectorList = function(noImp) {
+pp.parseSelectorList = function(noImp, isKeyframe) {
   var node = {
     type: "StyleRule",
     loc: this.createLoc(),
     selectors: [],
     rules: {}
   }
-  node.selectors.push(this.parseSelector())
+  node.selectors.push(this.parseSelector(isKeyframe))
   while (this.isListSeparator()) {
     this.next()
-    node.selectors.push(this.parseSelector())
+    node.selectors.push(this.parseSelector(isKeyframe))
   }
   node.rules = this.parseBlock(noImp)
   node.loc.end.line = this.token.line
@@ -203,24 +202,23 @@ pp.parseSelectorList = function(noImp) {
 
 
 ////////////////////////////////
-pp.parseSelector = function() {
+pp.parseSelector = function(isKeyframe, context) {
   var node = {
     type: "SelectorPattern",
     loc: this.createLoc(),
     selectors: []
   }
   while(!this.isBlockStart() && !this.isListSeparator()) {
-    if (this.isClass())         node.selectors.push(this.parseClass())
-    if (this.isTag())           node.selectors.push(this.parseTag())
-    if (this.isID())            node.selectors.push(this.parseID())
-    if (this.isCombinator())    node.selectors.push(this.parseCombinator())
-    if (this.isPseudoElement()) node.selectors.push(this.parsePseudoElement())
-    if (this.isPseudoClass())   node.selectors.push(this.parsePseudoClass())
-    if (this.isAttribute())     node.selectors.push(this.parseAttribute())
-    if (this.isNum())           node.selectors.push({type: "Number", name: this.token.val})
+    if (this.isClass() && !isKeyframe)          node.selectors.push(this.parseClass())
+    if (this.isTag())                           node.selectors.push(this.parseTag())
+    if (this.isID() && !isKeyframe)             node.selectors.push(this.parseID())
+    if (this.isCombinator() && !isKeyframe)     node.selectors.push(this.parseCombinator())
+    if (this.isPseudoElement()  && !isKeyframe) node.selectors.push(this.parsePseudoElement())
+    if (this.isPseudoClass()  && !isKeyframe)   node.selectors.push(this.parsePseudoClass())
+    if (this.isAttribute()  && !isKeyframe)     node.selectors.push(this.parseAttribute())
+    if (this.isPercent() && isKeyframe)         node.selectors.push(this.parseNum())
     this.next()
   }
-  // prev/last node or..
   node.loc.end.line = this.token.line
   node.loc.end.col = this.token.end
   return node
@@ -259,7 +257,6 @@ pp.parsePseudoClass  = function () {
 
 ////////////////////////////////
 pp.parseAttribute = function() {
-  console.log(this.token);
   let node = {
     type: "AttributeSelector",
     loc: this.createLoc(),
@@ -393,7 +390,6 @@ pp.parseAtom = function() {
 
 ////////////////////////////////
 pp.parseFunction = function(token) {
-  console.log(token.loc);
   var node = {
     type: "Function",
     name: token.name,

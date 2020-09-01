@@ -115,3 +115,7 @@ pp.isHex = function() {
 pp.isString = function() {
   return this.token.type === "string"
 }
+
+pp.isPercent = function() {
+  return this.token.type === "num" && this.token.postfix === "%"
+}

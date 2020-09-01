@@ -1,40 +1,18 @@
 #!/usr/bin/env node
-const Tokenizer  = require('../src/tokenize').Tokenizer
-const Parser     = require('../src/parser').Parser
-const read       = require('fs').readFileSync
+const parse       = require('../index.js')
+const read        = require('fs').readFileSync
+const write       = require('fs').writeFileSync
+const removeProp  = require('../src/util').removeProp
 
-require('../src/predicates');
-require('../src/parse');
-
-var content = read("materialize.css", "utf8");
-// var content =   read("test.css", "utf8");
+// var css     =   read("materialize.css", "utf8")
+var css     =   read("test.css", "utf8");
 var start   =   new Date().getTime()
-var token   =   new Tokenizer(content);
-var tokens  =   token.tokenize()
-// console.log(tokens);
-var parser  =   new Parser(tokens);
-var a       =   parser.parse()
+var ast     =   parse(css)
 var end     =   new Date().getTime()
+console.log("To parse:", (end-start)/1000)
 
-// .rules[a.rules.length-1]
-
-removeProps("loc", a)
-console.log(JSON.stringify(a, null, 2));
-console.log((end-start)/1000);
-
-
-// obj = obj = not copy, new ref, so still lost
-
-// deletes all "prop" properties of a nested object
-// irreversable - in place - make copy first
-function removeProps(prop, object) {
-  var prop = prop
-
-  for (var key in object) {
-    if (object.hasOwnProperty(key)) {
-      if (key === prop) delete object[key]
-      else if (typeof object[key] === "object")
-        removeProps("loc", object[key])
-    }
-  }
-}
+write("output.json",  JSON.stringify(ast, null, 2), "utf8")
+removeProp("loc", ast)
+write("output_no_loc.json",  JSON.stringify(ast, null, 2), "utf8")
+end = new Date().getTime()
+console.log("To write:", (end-start)/1000)
