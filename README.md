@@ -9,7 +9,8 @@ span
 }
 ```
 
-## Out
+
+## Out (Stringified for printing)
 ```json
 {
   "type": "Stylesheet",
