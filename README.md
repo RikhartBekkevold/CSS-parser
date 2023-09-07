@@ -10,7 +10,7 @@ span
 ```
 
 
-## Out (Stringified for printing)
+## Out
 ```json
 {
   "type": "Stylesheet",
